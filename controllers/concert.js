@@ -4,7 +4,9 @@ const User = require("../models/User")
 module.exports = {
     show: (req, res) => {
       Concert.findOne({ _id: req.params.id })
-      .populate("author")
+			.populate("author")
+			// will this already populate?
+			// .populate("dateAttended")
       .exec(function(err, concert) {
         Comment.populate(concert.comments, { path: "author" }, function(
           err,
