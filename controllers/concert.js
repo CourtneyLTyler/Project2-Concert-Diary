@@ -1,36 +1,57 @@
-// controller actions needed: show, login, createlogin, signup, createsignup, logout
+const {Concert, Comment} = require("../models/Concert")
 const User = require("../models/User")
-const { Concert } = require("../models/Concert")
 
 module.exports = {
-  show: (req, res) => {
-    User.findOne({ _id: req.params.id })
-      .populate({
-        path: "concerts",
-        // not sure about the limit - look at pagination?
-        options: { limit: 10, sort: { dateAttended: -1 } }
+    show: (req, res) => {
+      Concert.findOne({ _id: req.params.id })
+      .populate("author")
+      .exec(function(err, concert) {
+        Comment.populate(concert.comments, { path: "author" }, function(
+          err,
+          comments
+        ) {
+          concert.comments = comments
+          res.render("concert/show", concert)
+        })
       })
-      .then(user => {
-        res.render("users/show", { user });
+  },
+    new: (req, res) => {
+      User.find({}).then(users => {
+        res.render("concert/new", { users })
+      })
+    },
+    create: (req, res) => {
+      console.log('body', req.body)
+      Concert.create({
+        content: req.body.concert.content,
+        author: req.body.author
+      }).then(concert => {
+        console.log('concert ', concert)
+        User.findOne({ _id: req.body.author }).then(user => {
+          user.concerts.push(concert)
+          user.save(result => {
+            console.log(result)
+            res.redirect(`/concert/${concert._id}`)
+          })
+        })
+      })
+    },
+    update: (req, res) => {
+      console.log('body', req.body)
+      let { content, author } = req.body;
+      Concert.findOne({ _id: req.params.id }).then(concert => {
+        concert.comments.push({
+          content,
+          author
+        });
+        concert.save(err => {
+          res.redirect(`/concert/${concert._id}`);
+        });
       });
-  },
-//   needs to go somewhere
-  login: (req, res) => {
-    res.render("users/login");
-  },
-  createLogin: (req, res) => {
-    // authentication code here
-    return login(req, res);
-  },
-// needs to go somewhere
-  signUp: (req, res) => {
-    res.render("users/signup")
-  },
-  createSignUp: (req, res) => {
-    // code to create user's signup info here
-  },
-  logout: (req, res) => {
-    req.logout();
-    res.redirect("/")
-  }
-}
+    },
+    delete: (req, res) => {
+      Concert.findOneAndRemove({ _id: req.params.id }).then(concert => {
+        res.redirect('/')
+      });
+    }
+};

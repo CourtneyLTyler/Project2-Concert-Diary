@@ -1,8 +1,11 @@
-// this will be the homepage, index is only controller action needed
+const { Concert } = require("../models/Concert")
 
 module.exports = {
-    index: (req, res) => {
-      res.send('show this string')
-      res.render('index', { page: 'homepage' })
-    }
-  }
+	index: (req, res) => {
+		Concert.find({})
+			.populate("author")
+			.then(concerts => {
+				res.render("index", { concerts })
+			})
+	}
+}
