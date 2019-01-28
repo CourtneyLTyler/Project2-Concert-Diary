@@ -17,9 +17,7 @@ const Comment = new Schema({
 const Concert = new Schema({
   artistOrArists: String,
   url: String,
-//   user-inputted text a/b favorite moments of show
   noteworthy: String,
-//   possibly a url string to a link of the photo??
   photos: String,
   dateAttended: Date,
   createdAt: {
