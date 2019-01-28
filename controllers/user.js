@@ -1,6 +1,7 @@
 // controller actions needed: show, login, createlogin, signup, createsignup, logout
 const User = require("../models/User")
 const { Concert } = require("../models/Concert")
+const passport = require("passport");
 
 module.exports = {
   show: (req, res) => {

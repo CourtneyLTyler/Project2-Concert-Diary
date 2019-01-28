@@ -1,9 +1,9 @@
 const User = require("../models/User");
 const { Concert } = require("../models/Concert");
-// const bcrypt = require("bcrypt-nodejs");
+const bcrypt = require("bcrypt-nodejs");
 
-// const createPassword = password =>
-//   bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
+const createPassword = password =>
+  bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
 
 User.find({}).remove(() => {
   Concert.find({}).remove(() => {

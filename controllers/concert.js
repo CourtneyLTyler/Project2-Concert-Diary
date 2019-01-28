@@ -16,19 +16,21 @@ module.exports = {
           res.render("concert/show", concert)
         })
       })
-  },
+	},
     new: (req, res) => {
       User.find({}).then(users => {
         res.render("concert/new", { users })
       })
-    },
+		},
     create: (req, res) => {
-      console.log('body', req.body)
       Concert.create({
-        content: req.body.concert.content,
+				artistOrArtists: req.body.concert.artistOrArtists,
+				url: req.body.concert.url,
+				noteworthy: req.body.concert.noteworthy,
+				photos: req.body.concerts.photos,
+				dateAttended: req.body.concert.dateAttended,
         author: req.body.author
       }).then(concert => {
-        console.log('concert ', concert)
         User.findOne({ _id: req.body.author }).then(user => {
           user.concerts.push(concert)
           user.save(result => {
@@ -37,23 +39,48 @@ module.exports = {
           })
         })
       })
-    },
+		},
+		
     update: (req, res) => {
       console.log('body', req.body)
       let { content, author } = req.body;
+      Question.findOne({ _id: req.params.id }).then(question => {
+        question.answers.push({
+          content,
+          author
+        });
+        question.save(err => {
+          res.redirect(`/question/${question._id}`);
+        });
+      });
+    },
+
+    update: (req, res) => {
+      let { artistOrArtists, url, noteworthy, photos, dateAttended, author } = req.body;
       Concert.findOne({ _id: req.params.id }).then(concert => {
         concert.comments.push({
-          content,
+					artistOrArtists,
+					url,
+					noteworthy,
+					photos,
+					dateAttended,
           author
         });
         concert.save(err => {
           res.redirect(`/concert/${concert._id}`);
         });
       });
-    },
+		},
     delete: (req, res) => {
       Concert.findOneAndRemove({ _id: req.params.id }).then(concert => {
         res.redirect('/')
       });
-    }
+		},
+	  requireAuth: function(req, res, next) {
+			if (req.isAuthenticated()) {
+				next();
+			} else {
+				res.redirect("/");
+			}
+		}	
 };
