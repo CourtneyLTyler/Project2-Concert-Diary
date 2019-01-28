@@ -6,7 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Concert Diary</title>
 </head>
-<body>
-    {{{body}}}
-</body>
+  <body>
+    <header class="site-header">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo left">Concert Diary</a>
+          <ul class="right">
+          {{#if currentUser}}
+            <li><a href="/concert/new">Add Concert</a></li>
+            <li><a href="/user/{{currentUser.id}}">Profile</a></li>
+            <li><a href="/user/logout">Log Out</a></li>
+          {{else}}
+            <li><a href="/user/login">Log In</a></li>
+            <li><a href="/user/sign-up">Sign Up</a></li>
+          {{/if}}
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      {{{ body }}}
+    </main>
+  </body>
 </html>
