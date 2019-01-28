@@ -4,9 +4,10 @@ const bodyParser = require("body-parser")
 
 app.set('view engine', 'hbs')
 
-app.get('/', (req, res) => {
-    res.send('Hello world')
-})
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+app.use(require("./routes/index.js"))
 
 app.listen(4000, () => {
     console.log('app is listening on port 4000')
