@@ -9,26 +9,34 @@ module.exports = {
       .populate({
         path: "concerts",
         // not sure about the limit - look at pagination?
-        options: { limit: 10, sort: { dateAttended: -1 } }
+        options: { sort: { dateAttended: -1 } }
       })
       .then(user => {
-        res.render("users/show", { user });
+        res.render("user/show", { user });
       });
   },
-//   needs to go somewhere
   login: (req, res) => {
-    res.render("users/login");
+    res.render("user/login", { message: req.flash ("loginMessage") });
   },
   createLogin: (req, res) => {
-    // authentication code here
+		const login = passport.authenticate("local-login", {
+			successRedirect: "/",
+			failureRedirect: "/user/login",
+			failureFlash: true
+		})
     return login(req, res);
   },
 // needs to go somewhere
   signUp: (req, res) => {
-    res.render("users/signup")
+    res.render("user/signup", { message: req.flash ("signupMessage") })
   },
   createSignUp: (req, res) => {
-    // code to create user's signup info here
+		const signup = passport.authenticate("local-signup", {
+      successRedirect: "/",
+      failureRedirect: "/signup",
+      failureFlash: true
+    });
+    return signup(req, res);
   },
   logout: (req, res) => {
     req.logout();
