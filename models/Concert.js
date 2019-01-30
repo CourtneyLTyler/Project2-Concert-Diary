@@ -14,7 +14,11 @@ const Comment = new Schema({
 });
 
 const Concert = new Schema({
-  content: String,
+  artistOrArtists: String,
+  url: String,
+  noteworthy: String,
+  photos: String,
+  dateAttended: Date,
   createdAt: {
     type: Date,
     default: Date.now()
