@@ -1,43 +1,79 @@
 const User = require("../models/User");
-const { Concert } = require("../models/Concert");
+const { Question } = require("../models/Question");
 const bcrypt = require("bcrypt-nodejs");
 
 const createPassword = password =>
   bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
 
 User.find({}).remove(() => {
-  Concert.find({}).remove(() => {
-    let uniCourt = User.create({
-        username: "uniCourt",
-        email: "unicourt@gmail.com",
-        password: "abc-123"
+  Question.find({}).remove(() => {
+    let bugs = User.create({
+        email: "bugsbunny@gmail.com",
+        password: "bugsbunny"
     }).then(user => {
         Promise.all([
-          Concert.create({
-            artistOrArtists: "artist1",
-            url: "url1",
-            noteworthy: "noteworthy1",
-            photo: "urlphoto1",
-            dateAttended: "11/11/11",
+          Question.create({
+            content: "eh, what's up doc?",
             author: user._id
-          }).then(concert => {
-            user.concerts.push(concert)
+          }).then(question => {
+            user.questions.push(question)
           }),
-          Concert.create({
-            artistOrArtists: "artist2",
-            url: "url2",
-            noteworthy: "noteworthy2",
-            photo: "urlphoto2",
-            dateAttended: "11/11/11",
+          Question.create({
+            content: "That's all, folks!",
             author: user._id
-          }).then(concert => {
-            user.concerts.push(concert)
-          }),
+          }).then(question => {
+            user.questions.push(question)
+          })
         ]).then(() => {
           user.save(err => console.log(err))
         })
       })
   
+      let daffy = User.create({
+        email: "daffyduck@gmail.com",
+        password: "daffyduck"
+      }).then(user => {
+        Promise.all([
+          Question.create({
+            content: "Who's this Duck Dodgers any how?",
+            author: user._id
+          }).then(question => {
+            user.questions.push(question)
+          }),
+          Question.create({
+            content: "You're dethpicable.",
+            author: user._id
+          }).then(question => {
+            user.questions.push(question)
+          })
+        ]).then(() => {
+          user.save(err => console.log(err))
+        })
+      })
+  
+      let elmer = User.create({
+        email: "elmerfudd@gmail.com",
+        password: "elmerfudd"
+      }).then(user => {
+        Promise.all([
+          Question.create({
+            content:
+              "Shh. Be vewy vewy quiet. I'm hunting wabbits! Huh-huh-huh-huh!",
+            author: user._id
+          }).then(question => {
+            user.questions.push(question)
+          }),
+  
+          Question.create({
+            content: "Kiww da wabbit!",
+            author: user._id
+          }).then(question => {
+            user.questions.push(question)
+          })
+        ]).then(() => {
+          user.save(err => console.log(err))
+        })
+      })
     })
   })
 

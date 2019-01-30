@@ -1,21 +1,16 @@
-{{#if concerts}}
-  <ul class="concerts">
-    {{#each concerts}}
+{{#if questions}}
+  <ul class="questions">
+    {{#each questions}}
       <div class="card">
         <div class="card-content">
-          <a class="card-title" href="/concert/{{id}}">
-          Concert Post
+          <a class="card-title" href="/question/{{id}}">
+            {{ content }}
           </a>
-          <p>{{ artistOrArtists }}</p>
-          <p>{{ url }}</p>
-          <p>{{ noteworthy }}</p>
-          <p>{{ photo }}</p>
         </div>
         <div class="card-action">
-          <a href="/user/{{ author.id }}" class="">{{ author.username }}</a>
-          <span class="concert_date">Date Attended: {{ dateAttended }}</span>
-          <span class="created_date">Post created: {{ createdAt }}</span>
-          <span class="concert_comments">{{ comments.length }} Comments</span>
+          <a href="/user/{{ author.id }}" class="">{{ author.email }}</a>
+          <span class="question__date">{{ createdAt }}</span>
+          <span class="question_answers">{{ answers.length }} Answers</span>
         </div>
       </div>
     {{/each}}
