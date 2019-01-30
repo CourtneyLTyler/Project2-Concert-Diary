@@ -1,9 +1,9 @@
 <p class="card">
-  {{> 'question'}}
+  {{> 'concert'}}
 </p>
 
-{{#if answers.length}}
-  {{#each answers}}
+{{#if comments.length}}
+  {{#each comments}}
     <div class="card">
       <div class="card-content">
         <span class="card-title">
@@ -12,8 +12,8 @@
       </div>
       <div class="card-action">
         <a href="/user/{{ author.id }}" class="">{{ author.email }}</a>
-        <span class="question__date">{{ createdAt }}</span>
-        <span class="question_answers">{{ answers.length }} Answers</span>
+        <span class="concert__date">{{ createdAt }}</span>
+        <span class="concert_comments">{{ comments.length }} Comments</span>
       </div>
     </div>
   {{/each}}
@@ -21,8 +21,8 @@
 
 <div class="card">
   <div class="card-content">
-    <h4 class="card-title">Add an answer:</h6>
-    <form method="POST" action="/question/{{id}}?_method=PUT" class="row">
+    <h4 class="card-title">Add an comment:</h6>
+    <form method="POST" action="/concert/{{id}}?_method=PUT" class="row">
       <p class="input-field inline col s10">
         <label for="content"></label>
         <input type="text" name="content" id="">

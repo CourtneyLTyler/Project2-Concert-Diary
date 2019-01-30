@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://localhost/stackstyle")
+mongoose.connect("mongodb://localhost/concertsdb")
 
 mongoose.Promise = Promise
 

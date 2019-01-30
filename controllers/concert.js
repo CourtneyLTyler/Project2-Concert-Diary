@@ -1,37 +1,37 @@
-const {Question, Answer} = require("../models/Question")
+const {Concert, Comment} = require("../models/Concert")
 const User = require("../models/User")
 
 module.exports = {
     show: (req, res) => {
-      Question.findOne({ _id: req.params.id })
+      Concert.findOne({ _id: req.params.id })
       .populate("author")
-      .exec(function(err, question) {
-        Answer.populate(question.answers, { path: "author" }, function(
+      .exec(function(err, concert) {
+        Comment.populate(concert.comments, { path: "author" }, function(
           err,
-          answers
+          comments
         ) {
-          question.answers = answers
-          res.render("question/show", question)
+          concert.comments = comments
+          res.render("concert/show", concert)
         })
       })
   },
     new: (req, res) => {
       User.find({}).then(users => {
-        res.render("question/new", { users })
+        res.render("concert/new", { users })
       })
     },
     create: (req, res) => {
       console.log('body', req.body)
-      Question.create({
-        content: req.body.question.content,
+      Concert.create({
+        content: req.body.concert.content,
         author: req.body.author
-      }).then(question => {
-        console.log('question ', question)
+      }).then(concert => {
+        console.log('concert ', concert)
         User.findOne({ _id: req.body.author }).then(user => {
-          user.questions.push(question)
+          user.concerts.push(concert)
           user.save(result => {
             console.log(result)
-            res.redirect(`/question/${question._id}`)
+            res.redirect(`/concert/${concert._id}`)
           })
         })
       })
@@ -39,18 +39,18 @@ module.exports = {
     update: (req, res) => {
       console.log('body', req.body)
       let { content, author } = req.body;
-      Question.findOne({ _id: req.params.id }).then(question => {
-        question.answers.push({
+      Concert.findOne({ _id: req.params.id }).then(concert => {
+        concert.comments.push({
           content,
           author
         });
-        question.save(err => {
-          res.redirect(`/question/${question._id}`);
+        concert.save(err => {
+          res.redirect(`/concert/${concert._id}`);
         });
       });
     },
     delete: (req, res) => {
-      Question.findOneAndRemove({ _id: req.params.id }).then(question => {
+      Concert.findOneAndRemove({ _id: req.params.id }).then(concert => {
         res.redirect('/')
       });
     },

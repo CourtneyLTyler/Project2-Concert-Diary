@@ -1,16 +1,16 @@
-{{#if questions}}
-  <ul class="questions">
-    {{#each questions}}
+{{#if concerts}}
+  <ul class="concerts">
+    {{#each concerts}}
       <div class="card">
         <div class="card-content">
-          <a class="card-title" href="/question/{{id}}">
+          <a class="card-title" href="/concert/{{id}}">
             {{ content }}
           </a>
         </div>
         <div class="card-action">
           <a href="/user/{{ author.id }}" class="">{{ author.email }}</a>
-          <span class="question__date">{{ createdAt }}</span>
-          <span class="question_answers">{{ answers.length }} Answers</span>
+          <span class="concert__date">{{ createdAt }}</span>
+          <span class="concert_comments">{{ comments.length }} comments</span>
         </div>
       </div>
     {{/each}}

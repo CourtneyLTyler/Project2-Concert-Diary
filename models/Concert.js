@@ -1,7 +1,7 @@
 const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
-const Answer = new Schema({
+const Comment = new Schema({
   content: String,
   createdAt: {
     type: Date,
@@ -13,7 +13,7 @@ const Answer = new Schema({
   }
 });
 
-const Question = new Schema({
+const Concert = new Schema({
   content: String,
   createdAt: {
     type: Date,
@@ -23,10 +23,10 @@ const Question = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
-  answers: [Answer]
+  comments: [Comment]
 });
 
 module.exports = {
-  Question: mongoose.model("Question", Question),
-  Answer: mongoose.model("Answer", Answer)
+  Concert: mongoose.model("Concert", Concert),
+  Comment: mongoose.model("Comment", Comment)
 };
