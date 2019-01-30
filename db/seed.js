@@ -8,9 +8,8 @@ const createPassword = password =>
 User.find({}).remove(() => {
   Concert.find({}).remove(() => {
     let bugs = User.create({
-        email: "bugsbunny@gmail.com",
-        password: "bugsbunny",
-        username: "bugs"
+        username: "bugs",
+        password: "bugsbunny"
     }).then(user => {
         Promise.all([
           Concert.create({
@@ -18,7 +17,7 @@ User.find({}).remove(() => {
             url: "u1",
             noteworthy: "n1",
             photos: "p1",
-            datedAttended: "11/11/11",
+            dateAttended: "11/11/11",
             author: user._id
           }).then(concert => {
             user.concerts.push(concert)
@@ -28,7 +27,7 @@ User.find({}).remove(() => {
             url: "u2",
             noteworthy: "n2",
             photos: "p2",
-            datedAttended: "11/11/11",
+            dateAttended: "11/11/11",
             author: user._id
           }).then(concert => {
             user.concerts.push(concert)

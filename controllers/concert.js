@@ -23,7 +23,11 @@ module.exports = {
     create: (req, res) => {
       console.log('body', req.body)
       Concert.create({
-        content: req.body.concert.content,
+        artistOrArtists: req.body.concert.artistOrArtists,
+        url: req.body.concert.url,
+        noteworthy: req.body.concert.noteworthy,
+        photos: req.body.concert.photos,
+        dateAttended: req.body.concert.dateAttended,
         author: req.body.author
       }).then(concert => {
         console.log('concert ', concert)

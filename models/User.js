@@ -3,9 +3,8 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt-nodejs");
 
 const User = new Schema({
-  email: String,
-  password: String,
   username: String,
+  password: String,
   concerts: [
     {
       type: Schema.Types.ObjectId,
