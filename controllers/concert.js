@@ -4,9 +4,7 @@ const User = require("../models/User")
 module.exports = {
     show: (req, res) => {
       Concert.findOne({ _id: req.params.id })
-			.populate("author")
-			// will this already populate?
-			// .populate("dateAttended")
+			// .populate("author")
       .exec(function(err, concert) {
         Comment.populate(concert.comments, { path: "author" }, function(
           err,
@@ -27,11 +25,14 @@ module.exports = {
 				artistOrArtists: req.body.concert.artistOrArtists,
 				url: req.body.concert.url,
 				noteworthy: req.body.concert.noteworthy,
-				photos: req.body.concerts.photos,
+				photo: req.body.concert.photo,
 				dateAttended: req.body.concert.dateAttended,
-        author: req.body.author
+				// author: req.body.concert.author
+				author: req.body.author
+				// author: `${author.username}`
+				// author: `${User.username}`
       }).then(concert => {
-        User.findOne({ _id: req.body.author }).then(user => {
+        user.findOne({ _id: req.body.author }).then(user => {
           user.concerts.push(concert)
           user.save(result => {
             console.log(result)
@@ -40,30 +41,25 @@ module.exports = {
         })
       })
 		},
-		
-    update: (req, res) => {
-      console.log('body', req.body)
-      let { content, author } = req.body;
-      Question.findOne({ _id: req.params.id }).then(question => {
-        question.answers.push({
-          content,
-          author
-        });
-        question.save(err => {
-          res.redirect(`/question/${question._id}`);
-        });
-      });
-    },
+		// see if this format will work instead - still not sure how to add the username to the db 
+		// app.post("/addname", (req, res) => {
+		// 	var myData = new User(req.body);
+		// 	myData.save()
+		// 	.then(item => {
+		// 	res.send("item saved to database");
+		// 	})
+		// 	.catch(err => {
+		// 	res.status(400).send("unable to save to database");
+		// 	});
+		//  });
+
+
 
     update: (req, res) => {
-      let { artistOrArtists, url, noteworthy, photos, dateAttended, author } = req.body;
+      let { artistOrArtists, url, noteworthy, photo, dateAttended, author } = req.body;
       Concert.findOne({ _id: req.params.id }).then(concert => {
         concert.comments.push({
-					artistOrArtists,
-					url,
-					noteworthy,
-					photos,
-					dateAttended,
+					content,
           author
         });
         concert.save(err => {

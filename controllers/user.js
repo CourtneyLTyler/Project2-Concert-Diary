@@ -26,11 +26,10 @@ module.exports = {
 		})
     return login(req, res);
   },
-// needs to go somewhere
-  signUp: (req, res) => {
+  signup: (req, res) => {
     res.render("user/signup", { message: req.flash ("signupMessage") })
   },
-  createSignUp: (req, res) => {
+  createSignup: (req, res) => {
 		const signup = passport.authenticate("local-signup", {
       successRedirect: "/",
       failureRedirect: "/signup",

@@ -14,20 +14,20 @@ User.find({}).remove(() => {
     }).then(user => {
         Promise.all([
           Concert.create({
-            artistOrArtists: "eh, what's up doc?",
-            url: "sfsafa",
-            noteworthy: "fjdklsa;",
-            photos: "url",
+            artistOrArtists: "artist1",
+            url: "url1",
+            noteworthy: "noteworthy1",
+            photo: "urlphoto1",
             dateAttended: "11/11/11",
             author: user._id
           }).then(concert => {
             user.concerts.push(concert)
           }),
           Concert.create({
-            artistOrArtists: "eh, what's up doc?",
-            url: "sfsafa",
-            noteworthy: "fjdklsa;",
-            photos: "url",
+            artistOrArtists: "artist2",
+            url: "url2",
+            noteworthy: "noteworthy2",
+            photo: "urlphoto2",
             dateAttended: "11/11/11",
             author: user._id
           }).then(concert => {
