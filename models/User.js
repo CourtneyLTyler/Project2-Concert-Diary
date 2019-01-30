@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt-nodejs");
 
 const User = new Schema({
-	username: String,
   email: String,
   password: String,
   concerts: [
@@ -12,7 +11,7 @@ const User = new Schema({
       ref: "Concert"
     }
   ]
-})
+});
 
 User.methods.encrypt = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
@@ -22,5 +21,6 @@ User.methods.validPassword = function(password) {
   // removed local from local.password
   return bcrypt.compareSync(password, this.password);
 };
+
 
 module.exports = mongoose.model("User", User);

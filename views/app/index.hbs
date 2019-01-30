@@ -4,18 +4,13 @@
       <div class="card">
         <div class="card-content">
           <a class="card-title" href="/concert/{{id}}">
-          Concert Post
+            {{ content }}
           </a>
-          <p>{{ artistOrArtists }}</p>
-          <p>{{ url }}</p>
-          <p>{{ noteworthy }}</p>
-          <p>{{ photo }}</p>
         </div>
         <div class="card-action">
-          <a href="/user/{{ author.id }}" class="">{{ author.username }}</a>
-          <span class="concert_date">Date Attended: {{ dateAttended }}</span>
-          <span class="created_date">Post created: {{ createdAt }}</span>
-          <span class="concert_comments">{{ comments.length }} Comments</span>
+          <a href="/user/{{ author.id }}" class="">{{ author.email }}</a>
+          <span class="concert__date">{{ createdAt }}</span>
+          <span class="concert_comments">{{ comments.length }} comments</span>
         </div>
       </div>
     {{/each}}

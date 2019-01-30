@@ -2,28 +2,13 @@
   <h4>New Concert</h4>
   <form action="/concert" method="post" class="concert-form">
     <div class="input-field">
-      <textarea name="concert[artistOrArtists]" cols="30" rows="5" placeholder="Artist(s)"></textarea>
+      <textarea name="concert[content]" cols="30" rows="10" placeholder="Message"></textarea>
     </div>
-    <div class="input-field">
-      <textarea name="concert[url]" cols="30" rows="3" placeholder="Paste a link to the show (promo from venue site, etc.)"></textarea>
-    </div>
-    <div class="input-field">
-      <textarea name="concert[noteworthy]" cols="30" rows="10" placeholder="Favorite moments of the show"></textarea>
-    </div>
-    <div class="input-field">
-      <textarea name="concert[photo]" cols="30" rows="3" placeholder="Paste a link to your photo"></textarea>
-    </div>
-    <div class="input-field">
-      <textarea name="concert[dateAttended]" cols="30" rows="1" placeholder="Date of Concert"></textarea>
-    </div>
-    {{!-- <div class="input-field">
-      <textarea name="user[username]" cols="30" rows="1" placeholder="Your Username"></textarea>
-    </div> --}}
     <div class="">
       <select name="author" id="author">
         <option value="" disabled selected>Choose the User</option>
         {{#each users}}
-          <option value="{{id}}">{{username}}</option>
+          <option value="{{id}}">{{email}}</option>
         {{/each}}
       </select>
     </div>

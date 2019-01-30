@@ -11,8 +11,8 @@
         </span>
       </div>
       <div class="card-action">
-        <a href="/user/{{ author.id }}" class="">{{ author.username }}</a>
-        <span class="concert_date">{{ dateAttended }}</span>
+        <a href="/user/{{ author.id }}" class="">{{ author.email }}</a>
+        <span class="concert__date">{{ createdAt }}</span>
         <span class="concert_comments">{{ comments.length }} Comments</span>
       </div>
     </div>
@@ -21,7 +21,7 @@
 
 <div class="card">
   <div class="card-content">
-    <h4 class="card-title">Add a comment:</h6>
+    <h4 class="card-title">Add an comment:</h6>
     <form method="POST" action="/concert/{{id}}?_method=PUT" class="row">
       <p class="input-field inline col s10">
         <label for="content"></label>

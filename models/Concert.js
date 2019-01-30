@@ -1,7 +1,6 @@
 const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
-// 
 const Comment = new Schema({
   content: String,
   createdAt: {
@@ -15,11 +14,7 @@ const Comment = new Schema({
 });
 
 const Concert = new Schema({
-  artistOrArtists: String,
-  url: String,
-  noteworthy: String,
-  photo: String,
-  dateAttended: Date,
+  content: String,
   createdAt: {
     type: Date,
     default: Date.now()
