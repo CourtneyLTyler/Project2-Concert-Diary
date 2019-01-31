@@ -237,3 +237,18 @@ color: rgb(211,65,77);
   color: #FEDC3D;
   margin-left: 5%;
 }
+
+.comment-card {
+  margin-bottom: 30px;
+}
+
+.comment-textbox {
+  width: 80%;
+  background: #fffdd0;
+  border-style: none;
+  font-size: 1em;
+}
+
+.comment-username {
+  color: rgb(211,65,77);
+}

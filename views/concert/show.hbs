@@ -11,10 +11,8 @@
         </p>
       </div>
       <div class="comment-info">
-        author id not populating in link
-        <a href="/user/{{ author.id }}" class="">USERNAME NOT POPULATING author ref{{ author.username }}</a>
+        <a class="comment-username" href="/user/{{ author.id }}" class="">{{ author.username }}</a>
         <span class="concert__date">{{ createdAt }}</span>
-        <span class="concert_comments">{{ comments.length }} Comments</span>
       </div>
     </div>
   {{/each}}
@@ -22,17 +20,13 @@
 
 <div class="addcomment">
   <div class="addcomment-content">
-    <h4 class="addcomment-prompt">Add a comment:</h6>
+    <h4 class="addcomment-prompt">Add a comment:</h4>
     <form method="POST" action="/concert/{{id}}?_method=PUT" class="row">
-      {{!-- <p class="input-field col s10">
+      <p class="input-field inline col s100">
         <label for="content"></label>
-        <input type="text" name="content" id="">
-      </p> --}}
-        
-    <div class="input-field newcomment-text">
-      <textarea name="newcomment" cols="90" rows="10" placeholder="..."></textarea>
-    </div>
-      <p class="addcomment-btn input-field inline col s2">
+        <input type="text" name="content" placeholder="..." class="comment-textbox">
+      </p>
+      <p class="input-field inline col s2 addcomment-btn">
         <input class="btn" type="submit" value="Submit">
       </p>
     </form>
