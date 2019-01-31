@@ -4,14 +4,15 @@
 
 {{#if comments.length}}
   {{#each comments}}
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">
-          {{ content }}
-        </span>
+    <div class="comment-card">
+      <div class="comment-content">
+        <p class="comment-text">
+          <span class="comment-prop">comment: </span>{{ content }}
+        </p>
       </div>
-      <div class="card-action">
-        <a href="/user/{{ author.id }}" class="">{{ author.username }}</a>
+      <div class="comment-info">
+        author id not populating
+        <a href="/user/{{ author.id }}" class="">USERNAME NOT POPULATING{{ author.username }}</a>
         <span class="concert__date">{{ createdAt }}</span>
         <span class="concert_comments">{{ comments.length }} Comments</span>
       </div>

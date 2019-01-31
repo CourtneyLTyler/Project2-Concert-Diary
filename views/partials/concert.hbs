@@ -1,23 +1,22 @@
 <div class="card">
-  <div class="card-content">
-        <h1>
-          <a class="myconcert" href="/concert/{{id}}">
-            Show:
-          </a>
-        </h1>
-          <ul class="concert-props">
-            <li><span class="artist-span">Artist(s):</span>  {{ artistOrArtists }}</li>
-            <li><span class="prop-span">Venue:</span>  {{ venue }}</li>
-            <li>TESTTTTTT</li>
-            <li><span class="prop-span">Noteworthy:  </span> {{ noteworthy }}</li>
-            <li><span class="prop-span">Photos:  </span> {{ photos }}</li>
-            <li><span class="prop-span">Attended: </span> {{ dateAttended }}</li>
-          </ul>
-  </div>
-  <div class="card-action">
+  <article class="concert-articles">
+    <h1>
+      <a class="myconcert" href="/concert/{{id}}">
+        Show:
+      </a>
+    </h1>
+      <ul class="concert-props">
+        <li><span class="artist-span">Artist(s):</span>  {{ artistOrArtists }}</li>
+        <li><span class="prop-span">Venue:</span>  {{ venue }}</li>
+        <li><span class="prop-span">Noteworthy:  </span> {{ noteworthy }}</li>
+        <li><span class="prop-span">Photos:  </span> {{ photos }}</li>
+        <li><span class="prop-span">Attended: </span> {{ dateAttended }}</li>
+      </ul>
     <a href="/user/{{ author.id }}" class="">{{ author.username }}</a>
     <span class="concert__date">{{ createdAt }}</span>
     <span class="concert_comments">{{ comments.length }} Comments</span>
+  </article>
+  <div class="concert-del">
     <form class="" action="/concert/{{id}}?_method=DELETE" method="POST">
       <button type="submit" name="button">Delete</button>
     </form>

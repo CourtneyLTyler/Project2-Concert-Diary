@@ -83,3 +83,30 @@ color: rgb(211,65,77);
 .prop-span {
   color: #01ABAA;
 }
+
+.concert-del button {
+  background: #01ABAA;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-size: 1em;
+  margin-left: 15%;
+}
+
+.comment-card {
+  background: #FEDC3D;
+  width: 65%;
+  margin: auto;
+  border-radius: 25px;
+}
+
+.comment-content {
+  padding: 30px;
+}
+
+.comment-prop {
+  color: #01ABAA;;
+}
+
+.comment-info {
+  padding: 20px;
+}

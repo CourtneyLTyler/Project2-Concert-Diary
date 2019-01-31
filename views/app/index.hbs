@@ -8,18 +8,18 @@
             Show:
           </a>
         </h1>
-          <ul class="concert-props">
-            <li><span class="artist-span">Artist(s):</span>  {{ artistOrArtists }}</li>
-            <li><span class="prop-span">Venue: </span>  {{ venue }}</li>
-            <li><span class="prop-span">Noteworthy:  </span> {{ noteworthy }}</li>
-            <li><span class="prop-span">Photos:  </span> {{ photos }}</li>
-            <li><span class="prop-span">Attended: </span> {{ dateAttended }}</li>
-          </ul>
-        </div>
+        <ul class="concert-props">
+          <li><span class="artist-span">Artist(s):</span>  {{ artistOrArtists }}</li>
+          <li><span class="prop-span">Venue: </span>  {{ venue }}</li>
+          <li><span class="prop-span">Noteworthy:  </span> {{ noteworthy }}</li>
+          <li><span class="prop-span">Photos:  </span> {{ photos }}</li>
+          <li><span class="prop-span">Attended: </span> {{ dateAttended }}</li>
+        </ul>
         <div class="card-action">
           <a href="/user/{{ author.id }}" class="username-index">{{ author.username }}</a>
           <span class="concert__date">{{ createdAt }}</span>
           <p class="concert_comments">{{ comments.length }} comments</p>
+        </div>
       </article>
     {{/each}}
   </ul>
