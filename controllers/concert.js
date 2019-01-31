@@ -24,7 +24,7 @@ module.exports = {
       console.log('body', req.body)
       Concert.create({
         artistOrArtists: req.body.concert.artistOrArtists,
-        url: req.body.concert.url,
+        venue: req.body.concert.venue,
         noteworthy: req.body.concert.noteworthy,
         photos: req.body.concert.photos,
         dateAttended: req.body.concert.dateAttended,

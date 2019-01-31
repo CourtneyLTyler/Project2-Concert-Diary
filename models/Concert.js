@@ -15,7 +15,7 @@ const Comment = new Schema({
 
 const Concert = new Schema({
   artistOrArtists: String,
-  url: String,
+  venue: String,
   noteworthy: String,
   photos: String,
   dateAttended: Date,
