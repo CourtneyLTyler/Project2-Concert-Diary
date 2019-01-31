@@ -16,7 +16,7 @@ User.find({}).remove(() => {
             artistOrArtists: "Clutch",
             venue: "Rams Head Live",
             noteworthy: "staff party",
-            photos: "none yet",
+            photos: "https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/49678695_10105225921029239_816854774849732608_o.jpg?_nc_cat=109&_nc_ht=scontent-atl3-1.xx&oh=9a532a1b08c41bca9370b41d09d4353a&oe=5CC25EBD",
             dateAttended: "12/27/18",
             author: user._id
           }).then(concert => {
