@@ -12,6 +12,7 @@ module.exports = {
         ) {
           concert.comments = comments
           res.render("concert/show", concert)
+          // res.render("concert/show", {concerts})
         })
       })
   },

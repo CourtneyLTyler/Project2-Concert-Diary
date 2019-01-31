@@ -1,19 +1,21 @@
-<section class="row">
-  <h4>Sign Up:</h4>
+<section class="row signup-section">
+  <div class="signup-content">
+    <h4>Sign Up:</h4>
 
-  {{#if message}}
-    <p class="alert">{{message}}</p>
-  {{/if}}
-  
-  <form action="" method="POST" class="auth-form">
-    <p class="input-field">
-      <input type="text" name="username" placeholder="Username">
-    </p>
-    <p class="input-field">
-      <input type="password" name="password" placeholder="Password">
-    </p>
-    <p class="input-field">
-      <input type="submit" value="Sign Up" class="btn waves-effect waves-light">
-    </p>
-  </form>
+    {{#if message}}
+      <p class="alert">{{message}}</p>
+    {{/if}}
+    
+    <form action="" method="POST" class="auth-form">
+      <p class="input-field">
+        <input type="text" name="username" placeholder="Username">
+      </p>
+      <p class="input-field">
+        <input type="password" name="password" placeholder="Password">
+      </p>
+      <p class="input-field">
+        <input type="submit" value="Sign Up" class="btn waves-effect waves-light">
+      </p>
+    </form>
+  </div>
 </section>
