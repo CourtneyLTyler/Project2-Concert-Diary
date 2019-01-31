@@ -1,17 +1,34 @@
 body {
   background: black;
+  font-family: 'Inconsolata', monospace;
+  font-size: 1.5em;
+  margin: 3%;
 }
 
-.nav-wrapper {
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  select {
-    display: block;
-  }
+.navlinks {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
-  .nav-item {
-    display: inline;
-  }
+.navlink {
+  float: right;
+}
+
+#brand {
+float: left;
+}
+
+.navlink a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
