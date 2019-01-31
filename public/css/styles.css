@@ -145,4 +145,71 @@ color: rgb(211,65,77);
   background: #01ABAA;
   width: 30%;
   margin: auto;
+  border-radius: 20px;
+}
+
+.signup-content {
+  padding: 20px;
+}
+
+.signup-content h4 {
+  color: #fffdd0;
+}
+
+.signup-btn {
+  background: rgb(211,65,77);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: .8em;
+  margin-left: 3%;
+  margin-top: 20px;
+}
+
+.login-section {
+  background: #01ABAA;
+  width: 30%;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.login-content {
+  padding: 20px;
+}
+
+.login-content h4 {
+  color: #fffdd0;
+}
+
+.login-btn {
+  background: rgb(211,65,77);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: .8em;
+  margin-left: 3%;
+  margin-top: 20px;
+}
+
+.addshow-section {
+  background: #01ABAA;
+  margin-bottom: 30px;
+  padding: 3%;
+  width: 70%;
+  margin: 30px auto;
+  border-radius: 25px;
+}
+
+.concert-form {
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.addshow-input {
+  background: #fffdd0;
+  padding: 20px;
+  
+}
+
+.addshow-input textarea {
+  background: #fffdd0;
+  border-style: none;
 }
