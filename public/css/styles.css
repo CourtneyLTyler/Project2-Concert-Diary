@@ -5,6 +5,16 @@ body {
   margin: 3%;
 }
 
+a {
+  text-decoration: none;
+}
+
+.navi {
+  margin-bottom: 60px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 .navlinks {
   list-style-type: none;
   margin: 0;
@@ -14,10 +24,13 @@ body {
 
 .navlink {
   float: right;
+  padding-top: 40px;
 }
 
 #brand {
 float: left;
+font-size: 2em;
+color: rgb(211,65,77);
 }
 
 .navlink a {
@@ -29,6 +42,44 @@ float: left;
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
+.navlink a:hover {
+  color: rgb(211,65,77);
+}
+
+.concert-articles {
+  background: #FEA680;
+  margin-bottom: 30px;
+  padding: 3%;
+  width: 70%;
+  margin: 30px auto;
+  border-radius: 25px;
+}
+
+.myconcert {
+  font-size: 1.75em;
+}
+
+.concert-articles ul {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.concert-articles a {
+  color: #FEDC3D;
+}
+
+.concert-articles a:hover {
+  color: rgb(211,65,77);
+}
+
+.concert-articles ul li {
+  margin: 2%;
+}
+
+.artist-span {
+  color: #fffdd0
+}
+
+.prop-span {
+  color: #01ABAA;
 }

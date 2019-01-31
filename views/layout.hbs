@@ -12,18 +12,20 @@
       <nav class="navi">
         <ul class="navlinks">
           <li class="navlink" id="brand">
-            <a href="/" class="navbar-brand navbar-text">ShowGoer</a>
+            <a href="/" class="navbar-brand ">ShowGoer</a>
           </li>
           {{#if currentUser}}
           <li class="navlink">
-            <a class="nav-item nav-link navbar-text" href="/concert/new">+concert</a>
+            <a class="nav-item nav-link navbar-text" href="/user/logout">Log Out</a>
           </li>
           <li class="navlink">
             <a class="nav-item nav-link navbar-text" href="/user/{{currentUser.id}}">Profile</a>
           </li>
           <li class="navlink">
-            <a class="nav-item nav-link navbar-text" href="/user/logout">Log Out</a>
+            <a class="nav-item nav-link navbar-text" href="/concert/new">+concert</a>
           </li>
+
+
           {{else}}
           <li class="navlink">
             <a class="nav-item mr-2" href="/user/login">Log In</a>
