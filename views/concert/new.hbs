@@ -1,37 +1,38 @@
 <section class="addshow-section">
   <h4>Add Show</h4>
   <form action="/concert" method="post" class="concert-form">
-    <div class="input-field addshow-input">
-      <p>artist or artists:</p>
-      <textarea name="concert[artistOrArtists]" cols="70" rows="5" placeholder="..."></textarea>
-    </div>
-    <div class="input-field addshow-input">
-      <p>concert venue:</p>
-      <textarea name="concert[venue]" cols="70" rows="3" placeholder="..."></textarea>
-    </div>
-     <div class="input-field addshow-input">
-      <p>noteworthy moments:</p>
-      <textarea name="concert[noteworthy]" cols="70" rows="10" placeholder="..."></textarea>
-    </div>
-    <div class="input-field addshow-input">
-      <p>photo url(s):</p>
-      <textarea name="concert[photos]" cols="70" rows="10" placeholder="..."></textarea>
-    </div>
-    <div class="input-field addshow-input">
-      <p>date attended:</p>
-      <textarea name="concert[dateAttended]" cols="30" rows="3" placeholder="(mm/dd/yy)"></textarea>
-    </div>
-    <div class="">
-      <select name="author" id="author">
-        <option value="" disabled selected>your username</option>
-        {{#each users}}
-        {{!-- want this to be username --}}
-          <option value="{{id}}">{{username}}</option>
-        {{/each}}
-      </select>
+    <div class="addshow-content">
+      <div class="input-field addshow-input">
+        <p>artist or artists:</p>
+        <textarea name="concert[artistOrArtists]" cols="70" rows="5" placeholder="..."></textarea>
+      </div>
+      <div class="input-field addshow-input">
+        <p>concert venue:</p>
+        <textarea name="concert[venue]" cols="70" rows="3" placeholder="..."></textarea>
+      </div>
+      <div class="input-field addshow-input">
+        <p>noteworthy moments:</p>
+        <textarea name="concert[noteworthy]" cols="70" rows="10" placeholder="..."></textarea>
+      </div>
+      <div class="input-field addshow-input">
+        <p>photo url(s):</p>
+        <textarea name="concert[photos]" cols="70" rows="10" placeholder="..."></textarea>
+      </div>
+      <div class="input-field addshow-input">
+        <p>date attended:</p>
+        <textarea name="concert[dateAttended]" cols="30" rows="3" placeholder="(mm/dd/yy)"></textarea>
+      </div>
+      <div class="select-username">
+        <select name="author" id="author">
+          <option value="" disabled selected>select your username</option>
+          {{#each users}}
+            <option value="{{id}}">{{username}}</option>
+          {{/each}}
+        </select>
+      </div>
     </div>
     <div class="input-field">
-      <input type="submit" value="Concert" class="btn addshow-btn">
+      <input type="submit" value="Add" class="btn addshow-btn">
     </div>
   </form>
 </section>
