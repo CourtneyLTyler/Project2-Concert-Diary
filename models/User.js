@@ -10,6 +10,12 @@ const User = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Concert"
     }
+  ],
+  upcomings: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Upcoming"
+    }
   ]
 });
 

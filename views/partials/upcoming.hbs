@@ -1,0 +1,24 @@
+<div class="card">
+  <article class="upcoming-articles">
+    <h1>
+      <a class="myupcoming" href="/upcoming/{{id}}">
+        Show:
+      </a> 
+    </h1>
+      <ul class="upcoming-props">
+        {{!-- <li><a href="www.wikipedia.com">wiki</a></li> --}}
+        <li><span class="artist-span">Artist(s):</span>  {{ artistOrArtists }}</li>
+        <li><span class="prop-span">Venue:</span>  {{ venue }}</li>
+        <li><span class="prop-span">Show Date: </span> {{ showDate }}</li>
+      </ul>
+    <a href="/user/{{ author.id }}" class="">{{ author.username }}</a>
+    <span class="upcoming__date">{{ createdAt }}</span>
+    <span class="upcoming_commentups">{{ commentups.length }} comments</span>
+  </article>
+  <div class="upcoming-del">
+    <form class="" action="/upcoming/{{id}}?_method=DELETE" method="POST">
+      <button type="submit" name="button">Delete</button>
+    </form>
+  </div>
+</div>
+

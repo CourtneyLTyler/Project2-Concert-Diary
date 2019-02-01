@@ -10,5 +10,47 @@
   {{else}}
     <p>No concerts yet</p>
   {{/if}}
+    {{#if user.upcomings}}
+    <div class="upcomings">
+      {{#each user.upcomings}}
+         {{> 'upcoming'}}
+      {{/each}}
+    </div>
+  {{else}}
+    <p>No upcoming shows listed yet</p>
+  {{/if}}
+  </section>
+
+  <section class="addshow-section">
+  <h4>add an upcoming show</h4>
+  <form action="/upcoming" method="post" class="upcoming-form">
+    <div class="addshow-content">
+      <div class="input-field addshow-input">
+        <p>artist or artists:</p>
+        <textarea name="upcoming[artistOrArtists]" cols="70" rows="5" placeholder="..."></textarea>
+      </div>
+      <div class="input-field addshow-input">
+        <p>venue:</p>
+        <textarea name="upcoming[venue]" cols="70" rows="3" placeholder="..."></textarea>
+      </div>
+      <div class="input-field addshow-input">
+        <p>date of upcoming show:</p>
+        <textarea name="upcoming[showDate]" cols="30" rows="3" placeholder="(mm/dd/yy)"></textarea>
+      </div>
+      {{!-- <div class="select-username">
+        <select name="author" id="author">
+          <option value="" disabled selected>select your username</option>
+          {{#each users}}
+            <option value="{{id}}">{{username}}</option>
+          {{/each}}
+        </select>
+      </div> --}}
+    </div>
+    <div class="input-field">
+      <input type="submit" value="Add" class="btn addshow-btn">
+    </div>
+  </form>
 </section>
+
+
 
