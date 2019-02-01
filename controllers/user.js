@@ -7,7 +7,7 @@ module.exports = {
     User.findOne({ _id: req.params.id })
       .populate({
         path: "concerts",
-        options: { limit: 5, sort: { createdAt: -1 } }
+        options: { sort: { createdAt: -1 } }
       })
       .then(user => {
         res.render("user/show", { user: user });

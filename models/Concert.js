@@ -11,7 +11,7 @@ const Comment = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   }
-});
+})
 
 const Concert = new Schema({
   artistOrArtists: String,
@@ -27,7 +27,8 @@ const Concert = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
-  comments: [Comment]
+  comments: [Comment],
+  likes: Number
 });
 
 module.exports = {

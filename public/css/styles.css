@@ -41,7 +41,6 @@ color: rgb(211,65,77);
   text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 .navlink a:hover {
   color: rgb(211,65,77);
 }
@@ -252,3 +251,8 @@ color: rgb(211,65,77);
 .comment-username {
   color: rgb(211,65,77);
 }
+
+::-webkit-input-placeholder {
+  font-size: 14px;
+ }
+

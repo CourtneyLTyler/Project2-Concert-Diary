@@ -3,13 +3,14 @@
     <h1>
       <a class="myconcert" href="/concert/{{id}}">
         Show:
-      </a>
+      </a> 
     </h1>
       <ul class="concert-props">
+        {{!-- <li><a href="www.wikipedia.com">wiki</a></li> --}}
         <li><span class="artist-span">Artist(s):</span>  {{ artistOrArtists }}</li>
         <li><span class="prop-span">Venue:</span>  {{ venue }}</li>
         <li><span class="prop-span">Noteworthy:  </span> {{ noteworthy }}</li>
-        <li><span class="prop-span">Photos:  </span> {{ photos }}</li>
+        <li><span class="prop-span">Fav Photo:  </span> <a href="{{photos}}">see photo</a></li>
         <li><span class="prop-span">Attended: </span> {{ dateAttended }}</li>
       </ul>
     <a href="/user/{{ author.id }}" class="">{{ author.username }}</a>

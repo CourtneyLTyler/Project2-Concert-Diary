@@ -44,9 +44,9 @@ module.exports = {
     },
     update: (req, res) => {
       let { content, author } = req.body;
-      console.log('concert update')
-      console.log('body', req.body)
-      console.log(req.user)
+      // console.log('concert update')
+      // console.log('body', req.body)
+      // console.log(req.user)
       Concert.findOne({ _id: req.params.id }).then(concert => {
         Comment.create({ content, author: req.user._id }).then(newComment => {
           concert.comments.push(newComment)
