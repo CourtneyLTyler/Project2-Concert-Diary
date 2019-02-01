@@ -1,7 +1,5 @@
-A readme.md file in the root of your repo that follows good standards of documentation (i.e. explanations of the technologies used, the approach taken, features, installation instructions, unsolved problems, etc.)
-
 # Project2-Concert-Diary
-A full-stack application using MEH (Mongoose, Express, Handlebars) with CRUD functionality and RESTful routes, that lets users save memories of shows they've attended.
+A full-stack application using MEHN (Mongoose, Express, Handlebars, and Node) with CRUD functionality and RESTful routes, that lets users save memories of shows they've attended.
 
 # Technologies Used
 * Text Editor - VSCode
@@ -30,17 +28,20 @@ A full-stack application using MEH (Mongoose, Express, Handlebars) with CRUD fun
 * Created the basic file structure of the app (via VSCode)
 * Began working on layout/flow of site (via Pen and Paper)
 
-An application that lets users save memories of shows they've attended.  
-Users will create an account w/password and email (sign up, sign in, sign out).  They will have a page where they can see all of their saved shows.  They will be able to add new shows and update/delete existing shows.
-Possible bonus - upload photos taken at shows?
-
 # Features
 * Create a User account
-* Sign up/log in with email and password
+* Sign up/log in with username and password
 * Display and save posts about concerts attended
 * View feed of concert posts
-* Comment on other users' concert posts
-
-# Installation Instructions
+* Comment on concert posts
 
 # Unsolved Problems
+* Photo uploads
+* Profile form
+* Add future show feature
+* "Like" feature
+
+# Resources
+* I used the file structure from a recently completed lab (GA MEHN Lab) to inform this project.  
+* I used GA lessons on Express, Node, Mongoose, and deployment to inform this project.
+* Google was my friend

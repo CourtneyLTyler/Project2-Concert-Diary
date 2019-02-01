@@ -27,8 +27,7 @@ const Concert = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
-  comments: [Comment],
-  likes: Number
+  comments: [Comment]
 });
 
 module.exports = {

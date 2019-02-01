@@ -13,9 +13,7 @@ module.exports = {
         ) {
           concert.comments = comments
           concert.save()
-          // console.log(concert)
           res.render("concert/show", concert)
-          // res.render("concert/show", {concerts})
         })
       })
   },
@@ -25,7 +23,6 @@ module.exports = {
       })
     },
     create: (req, res) => {
-      console.log('running create')
       Concert.create({
         artistOrArtists: req.body.concert.artistOrArtists,
         venue: req.body.concert.venue,
@@ -44,9 +41,6 @@ module.exports = {
     },
     update: (req, res) => {
       let { content, author } = req.body;
-      // console.log('concert update')
-      // console.log('body', req.body)
-      // console.log(req.user)
       Concert.findOne({ _id: req.params.id }).then(concert => {
         Comment.create({ content, author: req.user._id }).then(newComment => {
           concert.comments.push(newComment)
@@ -62,11 +56,9 @@ module.exports = {
       });
     },
   requireAuth: function(req, res, next) {
-    console.log('requireauth')
     if (req.isAuthenticated()) {
       next();
     } else {
-      console.log('redirect to /')
       res.redirect("/");
     }
   }
