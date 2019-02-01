@@ -31,15 +31,17 @@ A full-stack application using MEHN (Mongoose, Express, Handlebars, and Node) wi
 # Features
 * Create a User account
 * Sign up/log in with username and password
-* Display and save posts about concerts attended
+* Create, display and save posts about concerts attended, which includes a section for journaling
 * View feed of concert posts
 * Comment on concert posts
 
 # Unsolved Problems
 * Photo uploads
-* Profile form
+* Expand profile to include upcoming shows
 * Add future show feature
 * "Like" feature
+* Spotify API
+* Fix "choose username" 
 
 # Resources
 * I used the file structure from a recently completed lab (GA MEHN Lab) to inform this project.  
