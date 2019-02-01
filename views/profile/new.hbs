@@ -1,0 +1,30 @@
+<section class="addshow-section">
+  <h4>Update Profile</h4>
+  <form action="/profile" method="post" class="concert-form">
+    <div class="addshow-content">
+      <div class="input-field addshow-input">
+        <p>favorite show:</p>
+        <textarea name="profile[favoriteShow]" cols="70" rows="5" placeholder="..."></textarea>
+      </div>
+      <div class="input-field addshow-input">
+        <p>favorite artist(s):</p>
+        <textarea name="profile[artist]" cols="70" rows="3" placeholder="..."></textarea>
+      </div>
+      <div class="input-field addshow-input">
+        <p>upcoming shows:</p>
+        <textarea name="profile[upcoming]" cols="70" rows="10" placeholder="..."></textarea>
+      </div>
+      <div class="select-username">
+        <select name="author" id="author">
+          <option value="" disabled selected>select your username</option>
+          {{#each users}}
+            <option value="{{id}}">{{username}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <div class="input-field">
+      <input type="submit" value="Add" class="btn addshow-btn">
+    </div>
+  </form>
+</section>

@@ -9,6 +9,7 @@ router.use((req, res, next) => {
 router.use('/', require('./application.js'));
 router.use('/user', require('./user'));
 router.use('/concert', require('./concert'));
+router.use('/profile', require('./profile'));
 
 router.all('*', (req, res) => {
   res.status(400).send();

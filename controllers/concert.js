@@ -13,9 +13,7 @@ module.exports = {
         ) {
           concert.comments = comments
           concert.save()
-          // console.log(concert)
           res.render("concert/show", concert)
-          // res.render("concert/show", {concerts})
         })
       })
   },

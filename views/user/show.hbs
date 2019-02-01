@@ -1,6 +1,9 @@
 
 <section class="profile">
   <h2>{{user.username}}</h2>
+  <p>{{profile.favoriteShow}}</p>
+  <p>{{profile.favoriteArtist}}</p>
+  <p>{{profile.upcoming}}</p>
   {{#if user.concerts}}
     <div class="concerts">
       {{#each user.concerts}}
